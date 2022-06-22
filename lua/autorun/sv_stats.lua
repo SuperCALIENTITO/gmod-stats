@@ -14,8 +14,7 @@ end
 local color = Color(0, 153, 255)
 local scolor = Color( 156, 241, 255, 200 )
 
-CreateConVar("stats_debug", 0, FCVAR_NONE, "", 0, 1)
-stats_debug = GetConVar("stats_debug"):GetInt()
+stats_debug = CreateConVar("stats_debug", 0, FCVAR_NONE, "", 0, 1)
 
 function statsOnJoin(ply)
 	local id64 = ply:SteamID64()
@@ -31,7 +30,7 @@ function statsOnJoin(ply)
 		MsgC(color, "[STATS] ", scolor, ply:Name() .. " First time connection\n")
 	end
 end
-hook.Add( "PlayerInitialSpawn", "Hook-StatsOnJoin", statsOnJoin )
+hook.Add("PlayerInitialSpawn", "Hook-StatsOnJoin", statsOnJoin)
 
 
 ---------------------------------------
