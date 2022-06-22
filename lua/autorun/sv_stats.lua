@@ -1,4 +1,3 @@
-module("stats_mp", package.seeall)
 if not SERVER then return end
 
 if not sql.TableExists("stats_mp") then
@@ -74,7 +73,7 @@ hook.Add("PlayerDeath", "Hook-StatsOnDeath", statsOnDeath)
 ----------------------
 -------- Chat --------
 ----------------------
-function statsChat(ply)
+function statsChat(ply, string)
 	local id64 = ply:SteamID64()
 	local chat = sql.Query("SELECT chat FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
 	local chat_fix = chat[1]["chat"]
@@ -84,6 +83,7 @@ function statsChat(ply)
 		MsgC(color, "[STATS] ", scolor, ply:Name() .. " has now: " .. tonumber(chat_fix)+1 .. " chat uses.\n")
 	end
 
+	MsgC(color, "[MSG] ", scolor, ply:Name() .. " : ", string, "\n")
 	return
 end
 hook.Add("PlayerSay", "Hook-StatsChat", statsChat)
