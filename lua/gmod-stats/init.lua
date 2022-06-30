@@ -41,10 +41,12 @@ local function AddDir(dir)
     local dir = dir .. "/"
     local files, dirs = file.Find(dir .. "*", "LUA")
     for k, v in ipairs(files) do
-        Addfile(v, dir)
+        if string.EndsWith(v,".lua") then
+            Addfile(v,dir)
+        end
     end
     for k, v in ipairs(dirs) do
         AddDir(dir .. v)
     end
 end
-addDir("lua/gmod-stats")
+addDir("gmod-stats")
