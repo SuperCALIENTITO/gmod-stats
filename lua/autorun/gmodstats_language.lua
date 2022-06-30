@@ -22,5 +22,6 @@ local lang_table = {
 }
 
 function GmS_GetLanguage(phrase)
-    return stats.language[lang_table[lang:GetString()]][phrase]
+    local language = lang_table[lang:GetString()] or "english"
+    return stats.language[language][phrase]
 end
