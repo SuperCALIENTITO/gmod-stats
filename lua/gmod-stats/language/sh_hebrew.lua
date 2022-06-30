@@ -1,6 +1,6 @@
-gmod-stats.language = {}
 
-gmod-stats.language["hebrew"] = {
+
+stats.language["hebrew"] = {
     ["kills"] = "נָמוּך",
     ["deaths"] = "התפללות",
     ["connections"] = "התחברויות",

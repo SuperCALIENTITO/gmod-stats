@@ -1,6 +1,6 @@
-gmod-stats.language = {}
 
-gmod-stats.language["somali"] = {
+
+stats.language["somali"] = {
     ["kills"] = "Kills",
     ["deaths"] = "Doods",
     ["connections"] = "Konneksies",

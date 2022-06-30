@@ -1,6 +1,4 @@
-gmod-stats.language = {}
-
-gmod-stats.language["turkish"] = {
+stats.language["turkish"] = {
     ["kills"] = "Öldürme",
     ["deaths"] = "Ölüm",
     ["connections"] = "Bağlantılar",

@@ -1,6 +1,6 @@
-gmod-stats.language = {}
 
-gmod-stats.language["russian"] = {
+
+stats.language["russian"] = {
     ["kills"] = "Убийства",
     ["deaths"] = "Смерти",
     ["connections"] = "Подключения",

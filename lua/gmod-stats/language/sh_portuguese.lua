@@ -1,6 +1,6 @@
-gmod-stats.language = {}
 
-gmod-stats.language["portuguese"] = {
+
+stats.language["portuguese"] = {
     ["kills"] = "Mata",
     ["deaths"] = "Morte",
     ["connections"] = "Conexões",

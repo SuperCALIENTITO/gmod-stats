@@ -1,22 +1,10 @@
-hook.Add("PlayerSay", "Hook-Stats", function(ply, text)
+util.AddNetworkString("gstatsShow")
+hook.Add("PlayerSay", "ShowStats", function(ply, text)
 	if string.lower(text) == "!stats" then
-		local id64 = ply:SteamID64()
-		local name = ply:Name()
-		local deaths = sql.Query("SELECT death FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-		local kills = sql.Query("SELECT kill FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-		local connections = sql.Query("SELECT connection FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-		local chat = sql.Query("SELECT chat FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-		local noclip = sql.Query("SELECT noclip FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-		local physgun = sql.Query("SELECT physgun FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-
-		ply:ChatPrint("[STATS] " .. name .. " Stats:")
-		ply:ChatPrint("[STATS] " .. GmS_GetLanguage("kills") .. ": " .. kills[1]["kill"])
-		ply:ChatPrint("[STATS] " .. GmS_GetLanguage("death") .. ": " .. deaths[1]["death"])
-		ply:ChatPrint("[STATS] " .. GmS_GetLanguage("connections") .. ": " .. connections[1]["connection"])
-		ply:ChatPrint("[STATS] Chat: " .. chat[1]["chat"])
-		ply:ChatPrint("[STATS] NoClip: " .. noclip[1]["noclip"])
-		ply:ChatPrint("[STATS] Physgun: " .. physgun[1]["physgun"])
-		MsgC(color, "[STATS] " .. name .. " " .. GmS_GetLanguage("asked") .. ".\n")
+		local stats = sql.Query("SELECT * FROM stats_mp WHERE player = " .. sql.SQLStr(ply:SteamID64()) .. ";")
+		net.Start("gstatsShow")
+		net.WriteTable({id = ply:SteamID64(), name = ply:Name(), deaths = stats[1]["death"], kills = stats[1]["kill"], connections = stats[1]["connection"], chat = stats[1]["chat"], noclip = stats[1]["noclip"], physgun = stats[1]["physgun"]})
+		net.Send(ply)
 		return ""
 	end
 end)
