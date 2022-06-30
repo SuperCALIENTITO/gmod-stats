@@ -1,0 +1,31 @@
+net.Receive("gstatsAdmin", function ()
+    local stats = net.ReadTable()
+    PrintTable(stats)
+
+    local adminFrame = vgui.Create("DFrame", nil)
+    adminFrame:SetTitle(GMS_GetLanguage("admin_panel"))
+    adminFrame:SetIcon("icon16/database_key.png")
+    adminFrame:SetSize(960, 480)
+    adminFrame:SetMinHeight(480)
+    adminFrame:SetMinWidth(960)
+    adminFrame:SetSizable(true)
+    adminFrame:SetScreenLock(true)
+    adminFrame:Center()
+    adminFrame:MakePopup()
+
+    local playerList = vgui.Create("DListView", adminFrame)
+    playerList:Dock(FILL)
+    playerList:SetMultiSelect(false)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.player")):SetMinWidth(320)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.chat")):SetFixedWidth(80)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.connection")):SetFixedWidth(80)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.kill")):SetFixedWidth(80)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.death")):SetFixedWidth(80)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.noclip")):SetFixedWidth(80)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.physgun")):SetFixedWidth(80)
+    playerList:AddColumn(GMS_GetLanguage("admin_panel.use_vehicle")):SetFixedWidth(80)
+
+    for index, stat in ipairs(stats) do
+        playerList:AddLine(stat.plyname, stat.chat, stat.connection, stat.kill, stat.death, stat.noclip, stat.physgun, stat.use_vehicle)
+    end
+end)

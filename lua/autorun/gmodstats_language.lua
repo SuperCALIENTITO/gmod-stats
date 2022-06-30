@@ -21,7 +21,7 @@ local lang_table = {
     ["tr"] = "turkish"
 }
 
-function GmS_GetLanguage(phrase)
+function GMS_GetLanguage(phrase)
     local language = lang_table[lang:GetString()] or "english"
-    return stats.language[language][phrase]
+    return stats.language[language][phrase] or phrase
 end

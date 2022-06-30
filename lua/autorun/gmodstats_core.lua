@@ -1,14 +1,18 @@
 stats = {}
 stats.language = {}
 if SERVER and not sql.TableExists("stats_mp") then
-    sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        player INTEGER NOT NULL,
-        kill INTEGER NOT NULL,
-        death INTEGER NOT NULL,
-        connection INTEGER NOT NULL,
-        chat INTEGER NOT NULL,
-        noclip INTEGER NOT NULL,
-        physgun INTEGER NOT NULL )]])
+    sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp (
+        id INTEGER NOT NULL DEFAULT 0 PRIMARY KEY AUTOINCREMENT,
+        player INTEGER NOT NULL DEFAULT 0,
+        plyname TEXT NOT NULL DEFAULT player,
+        kill INTEGER NOT NULL DEFAULT 0,
+        death INTEGER NOT NULL DEFAULT 0,
+        connection INTEGER NOT NULL DEFAULT 0,
+        chat INTEGER NOT NULL DEFAULT 0,
+        noclip INTEGER NOT NULL DEFAULT 0,
+        physgun INTEGER NOT NULL DEFAULT 0,
+        use_vehicle INTEGER NOT NULL DEFAULT 0
+    )]])
 end
 
 local function AddFile(file, dir)
@@ -44,8 +48,6 @@ local function AddDir(dir)
         end
     end
 
-    for _, v in ipairs(directories) do
-        AddDir(dir .. v)
-    end
+    for _, v in ipairs(directories) do AddDir(dir .. v) end
 end
 AddDir("gmodstats")
