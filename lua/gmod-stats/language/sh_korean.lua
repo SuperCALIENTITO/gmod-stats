@@ -1,6 +1,4 @@
-gmod-stats.language = {}
-
-gmod-stats.language["korean"] = {
+gmod_stats.language["korean"] = {
     ["kills"] = "죽음",
     ["deaths"] = "사망",
     ["connections"] = "접속",

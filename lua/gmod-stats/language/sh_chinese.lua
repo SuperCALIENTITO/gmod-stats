@@ -1,6 +1,4 @@
-gmod-stats.language = {}
-
-gmod-stats.language["chinese"] = {
+gmod_stats.language["chinese"] = {
     ["kills"] = "击杀",
     ["deaths"] = "死亡",
     ["connections"] = "连接",

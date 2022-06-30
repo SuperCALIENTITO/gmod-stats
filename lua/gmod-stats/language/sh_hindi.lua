@@ -1,6 +1,4 @@
-gmod-stats.language = {}
-
-gmod-stats.language["hindi"] = {
+gmod_stats.language["hindi"] = {
     ["kills"] = "मैट्रोजन",
     ["deaths"] = "मृत्यु",
     ["connections"] = "कनेक्टिंग",

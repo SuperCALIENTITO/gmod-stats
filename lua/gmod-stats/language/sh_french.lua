@@ -1,6 +1,4 @@
-gmod-stats.language = {}
-
-gmod-stats.language["french"] = {
+gmod_stats.language["french"] = {
     ["kills"] = "Tue",
     ["deaths"] = "Mort",
     ["connections"] = "Connexions",

@@ -1,5 +1,7 @@
 include("gmod-stats/core.lua")
 
+gmod_stats.language = {}
+
 if SERVER then
     if not sql.TableExists("stats_mp") then
         sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

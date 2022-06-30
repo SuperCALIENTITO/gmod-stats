@@ -1,6 +1,4 @@
-gmod-stats.language = {}
-
-gmod-stats.language["japanese"] = {
+gmod_stats.language["japanese"] = {
     ["kills"] = "倒した",
     ["deaths"] = "死亡",
     ["connections"] = "接続",

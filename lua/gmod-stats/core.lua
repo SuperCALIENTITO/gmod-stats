@@ -4,36 +4,36 @@ function GmS_GetLanguage(phrase)
     -- https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
     local lang = lang:GetString()
     if lang == "af" then
-        return gmod-stats.language["afrikaans"][phrase]
+        return gmod_stats.language["afrikaans"][phrase]
     elseif lang == "ar" then
-        return gmod-stats.language["arabic"][phrase]
+        return gmod_stats.language["arabic"][phrase]
     elseif lang == "bn" then
-        return gmod-stats.language["bengali"][phrase]
+        return gmod_stats.language["bengali"][phrase]
     elseif lang == "zh" then
-        return gmod-stats.language["chinese"][phrase]
+        return gmod_stats.language["chinese"][phrase]
     elseif lang == "en" then
-        return gmod-stats.language["english"][phrase]
+        return gmod_stats.language["english"][phrase]
     elseif lang == "fr" then
-        return gmod-stats.language["french"][phrase]
+        return gmod_stats.language["french"][phrase]
     elseif lang == "de" then
-        return gmod-stats.language["german"][phrase]
+        return gmod_stats.language["german"][phrase]
     elseif lang == "he" then
-        return gmod-stats.language["hebrew"][phrase]
+        return gmod_stats.language["hebrew"][phrase]
     elseif lang == "hi" then
-        return gmod-stats.language["hindi"][phrase]
+        return gmod_stats.language["hindi"][phrase]
     elseif lang == "jp" then
-        return gmod-stats.language["japanese"][phrase]
+        return gmod_stats.language["japanese"][phrase]
     elseif lang == "ko" then
-        return gmod-stats.language["korean"][phrase]
+        return gmod_stats.language["korean"][phrase]
     elseif lang == "ru" then
-        return gmod-stats.language["russian"][phrase]
+        return gmod_stats.language["russian"][phrase]
     elseif lang == "so" then
-        return gmod-stats.language["somali"][phrase]
+        return gmod_stats.language["somali"][phrase]
     elseif lang == "es" then
-        return gmod-stats.language["spanish"][phrase]
+        return gmod_stats.language["spanish"][phrase]
     elseif lang == "tr" then
-        return gmod-stats.language["turkish"][phrase]
+        return gmod_stats.language["turkish"][phrase]
     else
-        return gmod-stats.language["english"][phrase]
+        return gmod_stats.language["english"][phrase]
     end
 end
