@@ -3,7 +3,7 @@ net.Receive("gstatsShow", function ()
 
     -- ventana
     local sFrame = vgui.Create("DFrame", nil, "MP_StatsFrame")
-    sFrame:SetTitle("Tus Estadisticas")
+    sFrame:SetTitle(GmS_GetLanguage("title"))
     sFrame:SetIcon("materials/icon16/database.png")
     sFrame:SetSize(320, 200)
     sFrame:Center()

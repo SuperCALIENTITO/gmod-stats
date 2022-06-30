@@ -7,4 +7,5 @@ stats.language["portuguese"] = {
     ["physgun"] = "Physgun",
     ["player"] = "Jogador",
     ["asked"] = "consultou por suas estatísticas.",
+    ["title"] = "Suas estatísticas",
 }

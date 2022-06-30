@@ -7,4 +7,5 @@ stats.language["korean"] = {
     ["physgun"] = "Physgun",
     ["player"] = "플레이어",
     ["asked"] = "님의 통계를 조회하였습니다.",
+    ["title"] = "당신의 통계",
 }

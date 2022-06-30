@@ -7,4 +7,5 @@ stats.language["somali"] = {
     ["physgun"] = "Physgun",
     ["player"] = "Speler",
     ["asked"] = "Vraag om statistieke.",
+    ["title"] = "Jou statistieke",
 }

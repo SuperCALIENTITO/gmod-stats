@@ -7,4 +7,5 @@ stats.language["japanese"] = {
     ["physgun"] = "Physgun",
     ["player"] = "プレイヤー",
     ["asked"] = "さんのステータスを要求しました。",
+    ["title"] = "あなたのステータス",
 }

@@ -1,5 +1,7 @@
 -- https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-local lang = CreateConVar("stats_lang", "en", FCVAR_NONE, "The language to display in the stats menu", nil, nil)
+
+CreateConVar("stats_lang", "en", {FCVAR_ARCHIVE, FCVAR_NOTIFY}, "The language to use for the stats.")
+local lang = GetConVar("stats_lang")
 local lang_table = {
     ["af"] = "afrikaans",
     ["ar"] = "arabic",

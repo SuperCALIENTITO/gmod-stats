@@ -7,4 +7,5 @@ stats.language["hindi"] = {
     ["physgun"] = "Physgun",
     ["player"] = "खिलाफ",
     ["asked"] = "के लिए अपनी आंकड़े की जाँच किया है।",
+    ["title"] = "आपकी आंकड़े",
 }

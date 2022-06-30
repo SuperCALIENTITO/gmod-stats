@@ -11,8 +11,10 @@ hook.Add("PlayerSay", "ShowStats", function(ply, text)
 				connections = stats[1]["connection"],
 				chat = stats[1]["chat"],
 				noclip = stats[1]["noclip"],
-				physgun = stats[1]["physgun"]})
+				physgun = stats[1]["physgun"]
+			})
 		net.Send(ply)
+		print("[GModStats] " .. ply:Name() .. " " .. GmS_GetLanguage("asked"))
 		return ""
 	end
 end)
