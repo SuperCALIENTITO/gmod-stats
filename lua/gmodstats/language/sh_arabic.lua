@@ -1,5 +1,3 @@
-
-
 stats.language["arabic"] = {
     ["kills"] = "قتل",
     ["deaths"] = "وفاة",

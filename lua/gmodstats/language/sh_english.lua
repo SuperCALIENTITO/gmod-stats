@@ -1,5 +1,3 @@
-
-
 stats.language["english"] = {
     ["kills"] = "Kills",
     ["deaths"] = "Deaths",

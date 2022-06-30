@@ -11,41 +11,41 @@ if SERVER and not sql.TableExists("stats_mp") then
         physgun INTEGER NOT NULL )]])
 end
 
-local function AddFile(File, Directory)
-    local prefix = string.lower(string.Left(File, 3))
+local function AddFile(file, dir)
+    local prefix = string.lower(string.Left(file, 3))
     if SERVER and (prefix == "sv_") then
-        include(Directory .. File)
-        print("[STATS] SERVER INCLUDE: " .. File)
+        include(dir .. file)
+        print("[STATS] SERVER INCLUDE: " .. file)
     elseif (prefix == "sh_") then
         if SERVER then
-            AddCSLuaFile(Directory .. File)
-            print( "[STATS] SHARED: " .. File)
+            AddCSLuafile(dir .. file)
+            print( "[STATS] SHARED: " .. file)
         end
-        include(Directory .. File)
-        print("[STATS] SHARED INCLUDE: " .. File)
+        include(dir .. file)
+        print("[STATS] SHARED INCLUDE: " .. file)
     elseif (prefix == "cl_") then
         if SERVER then
-            AddCSLuaFile(Directory .. File)
-            print( "[STATS] CLIENT ADDCS: " .. File)
+            AddCSLuafile(dir .. file)
+            print( "[STATS] CLIENT ADDCS: " .. file)
         elseif CLIENT then
-            include(Directory .. File)
-            print("[STATS] CLIENT INCLUDE: " .. File)
+            include(dir .. file)
+            print("[STATS] CLIENT INCLUDE: " .. file)
         end
     end
 end
 
-local function IncludeDir(Directory)
-    Directory = Directory .. "/"
+local function AddDir(dir)
+    dir = dir .. "/"
 
-    local files, directories = file.Find(Directory .. "*", "LUA")
+    local files, directories = file.Find(dir .. "*", "LUA")
     for _, v in ipairs(files) do
         if string.EndsWith(v, ".lua") then
-            AddFile(v, Directory)
+            AddFile(v, dir)
         end
     end
 
     for _, v in ipairs(directories) do
-        IncludeDir(Directory .. v)
+        IncludeDir(dir .. v)
     end
 end
-IncludeDir("gmod-stats")
+AddDir("gmodstats")

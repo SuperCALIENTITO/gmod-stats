@@ -1,5 +1,3 @@
-
-
 stats.language["chinese"] = {
     ["kills"] = "击杀",
     ["deaths"] = "死亡",

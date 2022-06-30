@@ -1,5 +1,3 @@
-
-
 stats.language["hindi"] = {
     ["kills"] = "मैट्रोजन",
     ["deaths"] = "मृत्यु",

@@ -12,6 +12,7 @@ local lang_table = {
     ["hi"] = "hindi",
     ["jp"] = "japanese",
     ["ko"] = "korean",
+    ["pt"] = "portuguese",
     ["ru"] = "russian",
     ["so"] = "somali",
     ["es"] = "spanish",

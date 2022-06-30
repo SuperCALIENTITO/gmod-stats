@@ -1,5 +1,3 @@
-
-
 stats.language["japanese"] = {
     ["kills"] = "倒した",
     ["deaths"] = "死亡",

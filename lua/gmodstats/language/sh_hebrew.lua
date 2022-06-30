@@ -1,5 +1,3 @@
-
-
 stats.language["hebrew"] = {
     ["kills"] = "נָמוּך",
     ["deaths"] = "התפללות",

@@ -1,5 +1,3 @@
-
-
 stats.language["korean"] = {
     ["kills"] = "죽음",
     ["deaths"] = "사망",
