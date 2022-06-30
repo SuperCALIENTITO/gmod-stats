@@ -3,6 +3,7 @@ stats.language = {}
 if SERVER and not sql.TableExists("stats_mp") then
     sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         player INTEGER NOT NULL,
+        plyname VARCHAR(64) NOT NULL,
         kill INTEGER NOT NULL,
         death INTEGER NOT NULL,
         connection INTEGER NOT NULL,
