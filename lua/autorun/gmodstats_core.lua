@@ -45,7 +45,7 @@ local function AddDir(dir)
     end
 
     for _, v in ipairs(directories) do
-        IncludeDir(dir .. v)
+        AddDir(dir .. v)
     end
 end
 AddDir("gmodstats")
