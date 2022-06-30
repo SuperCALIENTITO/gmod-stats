@@ -1,0 +1,1 @@
+include("gmod-stats/init.lua")

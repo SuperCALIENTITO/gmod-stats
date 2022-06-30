@@ -1,38 +1,3 @@
-if not SERVER then return end
-
-if not sql.TableExists("stats_mp") then
-	sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-		player INTEGER NOT NULL,
-		kill INTEGER NOT NULL,
-		death INTEGER NOT NULL,
-		connection INTEGER NOT NULL,
-		chat INTEGER NOT NULL,
-		noclip INTEGER NOT NULL,
-		physgun INTEGER NOT NULL )]])
-end
-
-local color = Color(0, 153, 255)
-local scolor = Color( 156, 241, 255, 200 )
-
-stats_debug = CreateConVar("stats_debug", 0, FCVAR_NONE, "", 0, 1)
-
-function statsOnJoin(ply)
-	local id64 = ply:SteamID64()
-	local row = sql.QueryRow("SELECT connection FROM stats_mp WHERE player = " .. id64 .. ";")
-
-	if row then
-		local connections = sql.Query("SELECT connection FROM stats_mp WHERE player = " .. sql.SQLStr(id64) .. ";")
-		MsgC(color, "[STATS] ", scolor, ply:Name() .. " Connection number: " .. tonumber(connections[1]["connection"])+1 .. "\n")
-
-		sql.Query("UPDATE stats_mp SET connection = " .. sql.SQLStr(tonumber(connections[1]["connection"])+1) .. " WHERE player = " .. id64 .. ";")
-	else
-		sql.Query("INSERT into stats_mp ( player, kill, death, connection, chat, noclip, physgun ) VALUES ( " .. id64 .. ", 0, 0, 0, 0, 0, 0 );")
-		MsgC(color, "[STATS] ", scolor, ply:Name() .. " First time connection\n")
-	end
-end
-hook.Add("PlayerInitialSpawn", "Hook-StatsOnJoin", statsOnJoin)
-
-
 ---------------------------------------
 ---------------- Hooks ----------------
 ---------------------------------------
@@ -123,8 +88,9 @@ function statsPhysgun(ply)
 end
 hook.Add("OnPhysgunPickup", "Hook-StatsPhysgun", statsPhysgun)
 
-
--- Custom Hook
+----------------------
+----- Custom Hook ----
+----------------------
 --[[
 function statsCustomHook(ply)
 	local id64 = ply:SteamID64()
