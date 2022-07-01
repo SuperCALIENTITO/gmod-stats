@@ -3,7 +3,7 @@ util.AddNetworkString("gstatsAdmin")
 hook.Add("PlayerSay", "ShowStats", function(ply, text)
 	if (string.lower(text) == "!stats admin") then
 		if ply:IsAdmin() or ply:IsSuperAdmin() then
-			local stats = sql.Query("SELECT * FROM stats_mp;")
+			local stats = sql.Query("SELECT * FROM stats_mp LIMIT 100;")
 			net.Start("gstatsAdmin")
 				net.WriteTable(stats)
 			net.Send(ply)

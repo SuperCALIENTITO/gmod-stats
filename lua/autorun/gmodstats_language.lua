@@ -16,7 +16,6 @@ local lang_table = {
     ["ko"] = "korean",
     ["pt"] = "portuguese",
     ["ru"] = "russian",
-    ["so"] = "somali",
     ["es"] = "spanish",
     ["tr"] = "turkish"
 }
@@ -24,4 +23,9 @@ local lang_table = {
 function GMS_GetLanguage(phrase)
     local language = lang_table[lang:GetString()] or "english"
     return stats.language[language][phrase] or phrase
+end
+
+function GMS_Size(size)
+    local language = lang_table[lang:GetString()] or "english"
+    return stats.menu_size[language][size] or size
 end

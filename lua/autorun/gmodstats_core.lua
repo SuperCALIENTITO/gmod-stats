@@ -1,10 +1,11 @@
 stats = {}
 stats.language = {}
+stats.menu_size = {}
 if SERVER and not sql.TableExists("stats_mp") then
     sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp (
-        id INTEGER NOT NULL DEFAULT 0 PRIMARY KEY AUTOINCREMENT,
-        player INTEGER NOT NULL DEFAULT 0,
-        plyname TEXT NOT NULL DEFAULT player,
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        player INTEGER NOT NULL,
+        plyname VARCHAR(255) NOT NULL,
         kill INTEGER NOT NULL DEFAULT 0,
         death INTEGER NOT NULL DEFAULT 0,
         connection INTEGER NOT NULL DEFAULT 0,
