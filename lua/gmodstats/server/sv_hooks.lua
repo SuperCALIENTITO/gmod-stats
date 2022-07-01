@@ -35,7 +35,7 @@ end)
 hook.Add("PlayerInitialSpawn", "StatsConnection", function (ply)
 	local connection = sql.Query("SELECT connection FROM stats_mp WHERE player = " .. ply:SteamID64() .. ";")
 	if not connection then
-		sql.Query("INSERT into stats_mp (player, plyname, kill, death, connection, chat, noclip, physgun) VALUES (" .. ply:SteamID64() ", ".. ply:Name() .. ", 0, 0, 0, 0, 0, 0);")
+		sql.Query("INSERT into stats_mp (player, plyname, kill, death, connection, chat, noclip, physgun) VALUES (" .. ply:SteamID64() .. ", ".. ply:Name() .. ", 0, 0, 0, 0, 0, 0);")
 		return
 	end
 
