@@ -67,4 +67,4 @@ hook.Add("PlayerEnteredVehicle", "StatsUseVehicle", function(ply, veh, role)
 	local use_vehicle = sql.Query("SELECT use_vehicle FROM stats_mp WHERE player = " .. sql.SQLStr(ply:SteamID64()) .. ";")
 	sql.Query("UPDATE stats_mp SET use_vehicle = " .. sql.SQLStr(tonumber(use_vehicle[1]["use_vehicle"]) + 1) .. " WHERE player = " .. ply:SteamID64() .. ";")
 end)
-]]
+--]]
