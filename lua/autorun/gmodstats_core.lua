@@ -24,14 +24,14 @@ local function AddFile(file, dir)
     elseif (prefix == "sh_") then
         if SERVER then
             AddCSLuaFile(dir .. file)
-            print( "[STATS] SHARED: " .. file)
+            print("[STATS] SHARED: " .. file)
         end
         include(dir .. file)
         print("[STATS] SHARED INCLUDE: " .. file)
     elseif (prefix == "cl_") then
         if SERVER then
             AddCSLuaFile(dir .. file)
-            print( "[STATS] CLIENT ADDCS: " .. file)
+            print("[STATS] CLIENT ADDCS: " .. file)
         elseif CLIENT then
             include(dir .. file)
             print("[STATS] CLIENT INCLUDE: " .. file)
