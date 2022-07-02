@@ -1,6 +1,6 @@
-function checkPlayerDatabase(ply)
+local function checkPlayerDatabase(ply)
 	local data = sql.Query("SELECT * FROM stats_mp WHERE player = " .. ply:SteamID64() .. ";")
-	if data then
+	if not data then
 		sql.Query("INSERT INTO stats_mp (player, plyname, kill, death, connection, chat, noclip, physgun, use_vehicle) VALUES (" .. ply:SteamID64() .. ", " .. ply:Name() .. ", 0, 0, 0, 0, 0, 0, 0);")
 	end
 end
