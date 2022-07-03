@@ -1,6 +1,5 @@
 stats = {}
 stats.language = {}
-stats.menu_size = {}
 if SERVER and not sql.TableExists("stats_mp") then
     sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -24,7 +23,7 @@ local function AddFile(file, dir)
     elseif (prefix == "sh_") then
         if SERVER then
             AddCSLuaFile(dir .. file)
-            print("[STATS] SHARED: " .. file)
+            print("[STATS] SHARED ADDCS: " .. file)
         end
         include(dir .. file)
         print("[STATS] SHARED INCLUDE: " .. file)
