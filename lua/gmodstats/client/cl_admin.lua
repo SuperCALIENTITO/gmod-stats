@@ -23,9 +23,8 @@ net.Receive("gstatsAdmin", function ()
     playerList:AddColumn(GMS_GetLanguage("admin_panel.chat")):SetFixedWidth(GMS_Size("4"))
     playerList:AddColumn(GMS_GetLanguage("admin_panel.noclip")):SetFixedWidth(GMS_Size("5"))
     playerList:AddColumn(GMS_GetLanguage("admin_panel.physgun")):SetFixedWidth(GMS_Size("6"))
-    playerList:AddColumn(GMS_GetLanguage("admin_panel.vehicle")):SetFixedWidth(GMS_Size("7"))
 
     for index, stat in ipairs(stats) do
-        playerList:AddLine(stat.plyname, stat.chat, stat.connection, stat.kill, stat.death, stat.noclip, stat.physgun, stat.use_vehicle)
+        playerList:AddLine(stat.plyname, stat.chat, stat.connection, stat.kill, stat.death, stat.noclip, stat.physgun)
     end
 end)

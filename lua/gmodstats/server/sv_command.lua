@@ -3,10 +3,17 @@ util.AddNetworkString("gstatsAdmin")
 hook.Add("PlayerSay", "ShowStats", function(ply, text)
 	if (string.lower(text) == "!stats admin") then
 		if ply:IsAdmin() or ply:IsSuperAdmin() then
-			local stats = sql.Query("SELECT * FROM stats_mp LIMIT 100;")
+			local stats = {}
+			for _, v in ipairs(player.GetAll()) do
+				local query = sql.Query("SELECT * FROM stats_mp WHERE player = " .. v:SteamID64())
+				if query then
+					table.insert(stats, query[1])
+				end
+			end
 			net.Start("gstatsAdmin")
 				net.WriteTable(stats)
 			net.Send(ply)
+
 			return ""
 		end
 		return text
