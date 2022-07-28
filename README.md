@@ -9,3 +9,8 @@ Codigo que registra todas las acciones de los jugadores dentro del servidores, c
 - Veces que mata
 - Veces que se conecta
 - Veces que usa la physgun
+
+# Mapping Latam
+
+- [Github](https://github.com/mapping-latam)
+- [Discord](https://github.com/mapping-latam)
