@@ -74,15 +74,4 @@ net.Receive("gstatsShow", function ()
     s6Label:SetPos(24, 130)
     s6Label:SetSize(100, 16)
     s6Label:SetText(GMS_GetLanguage("physgun") .. ": " .. stats.physgun)
-
-    -- vehicle
-    local s7Image = vgui.Create("DImage", sFrame, "Stats7Image")
-    s7Image:SetPos(5, 150)
-    s7Image:SetSize(16, 16)
-    s7Image:SetImage("icon16/car.png")
-
-    local s7Label = vgui.Create("DLabel", sFrame, "Stats7Label")
-    s7Label:SetPos(24, 150)
-    s7Label:SetSize(100, 16)
-    s7Label:SetText(GMS_GetLanguage("vehicle") .. ": " .. stats.use_vehicle)
 end)

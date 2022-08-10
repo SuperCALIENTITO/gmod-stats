@@ -1,6 +1,6 @@
 net.Receive("gstatsAdmin", function ()
-    local stats = net.ReadTable()
-    -- PrintTable(stats)
+    local bytes = net.ReadUInt(16)
+    local stats = util.JSONToTable(util.Decompress(net.ReadData(bytes)))
 
     local adminFrame = vgui.Create("DFrame", nil)
     adminFrame:SetTitle(GMS_GetLanguage("admin_panel"))

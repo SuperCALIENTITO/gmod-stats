@@ -15,6 +15,11 @@ if SERVER and not sql.TableExists("stats_mp") then
     )]])
 end
 
+if SERVER then
+util.AddNetworkString("gstatsShow")
+util.AddNetworkString("gstatsAdmin")
+end
+
 local function AddFile(file, dir)
     local prefix = string.lower(string.Left(file, 3))
     if SERVER and (prefix == "sv_") then
