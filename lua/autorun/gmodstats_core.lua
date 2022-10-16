@@ -1,5 +1,14 @@
 stats = {}
 stats.language = {}
+stats.validType = {
+    ["kill"] = true,
+    ["death"] = true,
+    ["connection"] = true,
+    ["chat"] = true,
+    ["noclip"] = true,
+    ["physgun"] = true,
+    ["use_vehicle"] = true,
+}
 if SERVER and not sql.TableExists("stats_mp") then
     sql.Query([[CREATE TABLE IF NOT EXISTS stats_mp (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -18,6 +27,22 @@ end
 if SERVER then
 util.AddNetworkString("gstatsShow")
 util.AddNetworkString("gstatsAdmin")
+
+function stats.setStat(ply, hType)
+    if ply:IsPlayer() and stats.validType[hType] then
+
+        local exists = sql.Query("SELECT * FROM stats_mp WHERE player = " .. ply:SteamID64() .. ";")
+
+        if not exists then
+            sql.Query("INSERT INTO stats_mp (player, plyname, kill, death, connection, chat, noclip, physgun, use_vehicle) VALUES (" .. ply:SteamID64() .. ", " .. ply:Name() .. ", 0, 0, 0, 0, 0, 0, 0);")
+            sql.Query("UPDATE stats_mp SET " .. hType .. " = " .. hType .. " + 1 WHERE player = " .. ply:SteamID64())
+        else
+            sql.Query("UPDATE stats_mp SET " .. hType .. " = " .. hType .. " + 1 WHERE player = " .. ply:SteamID64())
+        end
+
+    end
+end
+
 end
 
 local function AddFile(file, dir)
